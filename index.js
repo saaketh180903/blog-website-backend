@@ -41,7 +41,7 @@ const upload = multer({ storage: storage });
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:3000",
+    origin: "https://blog-mern-frondend.netlify.app",
   })
 );
 app.use(express.json());
