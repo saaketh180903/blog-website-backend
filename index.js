@@ -14,6 +14,7 @@ const { GetObjectCommand, DeleteObjectCommand } = require("@aws-sdk/client-s3");
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 const crypto = require("crypto");
+const cookieSession = require("cookie-session");
 
 //PORT From Env
 const PORT = process.env.PORT;
@@ -37,7 +38,17 @@ const generateFileName = (bytes = 32) =>
 //Middleware
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
-
+app.set("trust proxy", 1);
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["cyberwolve"],
+    maxAge: 24 * 60 * 60 * 100,
+    sameSite: "none",
+    secure: true,
+    httpOnly: true,
+  })
+);
 app.use(
   cors({
     credentials: true,

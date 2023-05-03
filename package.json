@@ -15,6 +15,7 @@
     "@aws-sdk/s3-request-presigner": "^3.321.1",
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^16.0.3",
