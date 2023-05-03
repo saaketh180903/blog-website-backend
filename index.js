@@ -83,7 +83,7 @@ app.post("/login", async (req, res) => {
       );
       res
         .status(200)
-        .cookie("token", token)
+        .cookie("token", token, { sameSite: "none", secure: true })
         .json({ id: userFromDB._id, username });
     } else {
       res.status(400).send({ message: "invalid credentials" });
