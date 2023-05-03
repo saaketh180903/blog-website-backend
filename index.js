@@ -53,6 +53,7 @@ app.use(
   cors({
     credentials: true,
     origin: "https://blog-mern-frondend.netlify.app",
+    methods: "GET,POST,PUT,DELETE",
   })
 );
 app.use(express.json());
