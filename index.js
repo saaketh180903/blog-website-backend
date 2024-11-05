@@ -49,13 +49,11 @@ app.use(
     httpOnly: true,
   })
 );
-app.use(
-  cors({
-    credentials: true,
-    origin: "https://blog-mern-frondend.netlify.app",
-    methods: "GET,POST,PUT,DELETE",
-  })
-);
+app.use(cors({
+  origin: "http://localhost:3000", // Update with your frontend origin
+  credentials: true,
+}));
+
 app.use(express.json());
 app.use(cookieParser());
 
